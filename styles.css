@@ -217,6 +217,13 @@
   font-style: normal;
 }
 
+.hover-effect {
+  transition: transform 0.3s ease;
+}
+
+.hover-effect:hover, .hover-effect:focus {
+  transform: scale(1.1);
+}
 
 body {
   margin: 20px;

@@ -249,7 +249,6 @@
   min-width: 100%;
   min-height: 100%;
   z-index: -1;
-  
 }
 
 body {
@@ -8911,6 +8910,11 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-light-o {
+  --bs-bg-opacity: 0.9;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 

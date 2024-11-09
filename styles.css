@@ -225,6 +225,33 @@
   transform: scale(1.1);
 }
 
+.animate-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4s steps(120, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-right-color: transparent; }
+  50% { border-right-color: black; }
+}
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  
+}
+
 body {
   margin: 20px;
   font-family: var(--bs-body-font-family);

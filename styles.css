@@ -1,9 +1,14 @@
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .poppins-medium {
   font-family: "Poppins", serif;
   font-weight: 500;
   font-style: normal;
 }
-  
+
 .poppins-semibold {
   font-family: "Poppins", serif;
   font-weight: 600;
@@ -37,10 +42,58 @@
   width: 29ch;
 }
 
+.yt-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  scale: 0.975;
+}
+
+.yt-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 @media (max-width: 512px) {
   .animate-text {
     animation: typing 1.5s steps(120, end), blink-caret .75s step-end infinite;
     width: 29ch;
+  }
+
+  #old_pfp {
+  scale: 0.9;
+  }
+
+  #spotify {
+    scale: 0.9;
+    margin-top: -150px;
+    margin-bottom: -150px;
+  }
+
+  #instagram {
+    scale: 0.9;
+    margin-top: -100px;
+    margin-bottom: -100px;
+  }
+
+  #social_accounts {
+    scale: 0.95;
+    margin-top: -100px;
+    margin-bottom: -100px;
+  }
+
+  #currently_building {
+    scale: 0.9;
+    margin-top: -50px;
+    margin-bottom: -50px;
+  }
+
+  .yt-container {
+    scale: 0.95;
   }
 }
 

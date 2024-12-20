@@ -76,8 +76,8 @@ html, body {
 
   #instagram {
     scale: 0.9;
-    margin-top: -100px;
-    margin-bottom: -100px;
+    margin-top: -125px;
+    margin-bottom: -150px;
   }
 
   #social_accounts {
@@ -94,6 +94,7 @@ html, body {
 
   .yt-container {
     scale: 0.95;
+    right: 2.5px;
   }
 }
 

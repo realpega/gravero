@@ -54,7 +54,7 @@
                         <img class="hover-effect" src="https://pbs.twimg.com/profile_images/1768307942250725376/JwobC4Ih_400x400.jpg" width="100" height="100" style="margin: 10px; border-radius: 50%;"/>
                         <h5 class="card-title poppins-medium mt-1" style="font-size: 1.5rem;">Download Old PFPs</h5>
                         <p class="h5 card-text text-muted">Gravero's former profile pictures</p>
-                        <a href="/old_pfps.html" target="_blank" class="btn btn-primary mt-1" style="background-color: #6610f2; width: 40%;">Download</a>
+                        <a href="old_pfps.html" target="_blank" class="btn btn-primary mt-1" style="background-color: #6610f2; width: 40%;">Download</a>
                     </div>
                 </div>
             </div>
@@ -328,6 +328,160 @@
         </div>
     </section>    
     <br /><br /><br />
+    <section id="feedback" class="py-5 bg-light-o">
+        <div class="container">
+            <h3 class="text-center poppins-extrabold">Any Feedbacks?</h3>
+            <br />
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card shadow-sm border border-dark border-5 hover-effect" style="margin: 2.5px; overflow: hidden;">
+                        <div id="game-over-message" class="d-none justify-content-center mt-1 mb-1">
+                            <img src="star.png" width="40px" height="40px"><img src="star.png" width="40px" height="40px"><img src="star.png" width="40px" height="40px"><img src="star.png" width="40px" height="40px"><img src="star.png" width="40px" height="40px">
+                        </div>
+                        <div id="gamebody">
+                            <canvas width="400" height="400" id="game"></canvas>
+                        </div>
+                        <script>
+                            const canvas = document.getElementById('game');
+                            const context = canvas.getContext('2d');
+    
+                            const gridSize = 16;
+                            let count = 0;
+                            let isArrowKeysLocked = false;
+                            let isGameActive = false;
+                            let applesCollected = 0;
+    
+                            const snake = {
+                                x: 160,
+                                y: 160,
+                                dx: gridSize,
+                                dy: 0,
+                                cells: [],
+                                maxCells: 4
+                            };
+    
+                            const apple = {
+                                x: 320,
+                                y: 320
+                            };
+    
+                            let direction = { x: gridSize, y: 0 };
+    
+                            const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+    
+                            const resetGame = () => {
+                                snake.x = 160;
+                                snake.y = 160;
+                                snake.cells = [];
+                                snake.maxCells = 4;
+                                direction = { x: gridSize, y: 0 };
+                                apple.x = getRandomInt(0, 25) * gridSize;
+                                apple.y = getRandomInt(0, 25) * gridSize;
+                                applesCollected = 0;
+                            };
+    
+                            const appleImage = new Image();
+                            appleImage.src = 'star.png';
+    
+                            const gameLoop = () => {
+                                if (applesCollected === 5) {
+                                    const gameOverMessage = document.getElementById('game-over-message');
+                                    gameOverMessage.classList.remove('d-none');
+                                    gameOverMessage.classList.add('d-flex');
+                                    isArrowKeysLocked = false;
+                                    isGameActive = false;
+                                    return;
+                                }
+    
+                                requestAnimationFrame(gameLoop);
+    
+                                if (++count < 4) return;
+                                count = 0;
+    
+                                context.clearRect(0, 0, canvas.width, canvas.height);
+    
+                                snake.x += direction.x;
+                                snake.y += direction.y;
+    
+                                if (snake.x < 0) snake.x = canvas.width - gridSize;
+                                else if (snake.x >= canvas.width) snake.x = 0;
+    
+                                if (snake.y < 0) snake.y = canvas.height - gridSize;
+                                else if (snake.y >= canvas.height) snake.y = 0;
+    
+                                snake.cells.unshift({ x: snake.x, y: snake.y });
+                                if (snake.cells.length > snake.maxCells) snake.cells.pop();
+    
+                                context.drawImage(appleImage, apple.x, apple.y, gridSize, gridSize);
+    
+                                context.fillStyle = 'green';
+                                snake.cells.forEach((cell, index) => {
+                                    context.fillRect(cell.x, cell.y, gridSize - 1, gridSize - 1);
+    
+                                    if (cell.x === apple.x && cell.y === apple.y) {
+                                        snake.maxCells++;
+                                        applesCollected++;
+                                        apple.x = getRandomInt(0, 25) * gridSize;
+                                        apple.y = getRandomInt(0, 25) * gridSize;
+                                    }
+    
+                                    for (let i = index + 1; i < snake.cells.length; i++) {
+                                        if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                                            resetGame();
+                                        }
+                                    }
+                                });
+                            };
+    
+                            const feedbackSection = document.getElementById('feedback');
+                            feedbackSection.addEventListener('mouseenter', () => {
+                                isArrowKeysLocked = true;
+                            });
+    
+                            feedbackSection.addEventListener('mouseleave', () => {
+                                if (!isGameActive) {
+                                    isArrowKeysLocked = false;
+                                }
+                            });
+    
+                            document.addEventListener('keydown', (event) => {
+                                if (isArrowKeysLocked) {
+                                    if (isGameActive) {
+                                        switch (event.key) {
+                                            case 'ArrowUp':
+                                            case 'w':
+                                                if (direction.y === 0) direction = { x: 0, y: -gridSize };
+                                                break;
+                                            case 'ArrowDown':
+                                            case 's':
+                                                if (direction.y === 0) direction = { x: 0, y: gridSize };
+                                                break;
+                                            case 'ArrowLeft':
+                                            case 'a':
+                                                if (direction.x === 0) direction = { x: -gridSize, y: 0 };
+                                                break;
+                                            case 'ArrowRight':
+                                            case 'd':
+                                                if (direction.x === 0) direction = { x: gridSize, y: 0 };
+                                                break;
+                                        }
+                                        event.preventDefault();
+                                    } else {
+                                        event.preventDefault();
+                                    }
+                                }
+                            });
+    
+                            resetGame();
+                            isGameActive = true;
+                            requestAnimationFrame(gameLoop);
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
     <section id="contact" class="py-5 text-center bg-light-o">
         <div class="container">
             <h2>Contact Me</h2>

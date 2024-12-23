@@ -96,6 +96,10 @@ html, body {
     scale: 0.95;
     right: 2.5px;
   }
+
+  #gamebody:hover {
+    transform: none;
+  }
 }
 
 @keyframes typing {
@@ -110,12 +114,4 @@ html, body {
   min-width: 100%;
   min-height: 100%;
   z-index: -1;
-}
-
-#gamebody {
-  display: flex;
-}
-
-canvas {
-  border: 1px solid black;
 }

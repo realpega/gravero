@@ -102,9 +102,42 @@ html, body {
   }
 }
 
+@media (max-width: 480px) {
+  .animate-text {
+    scale: 0.95;
+    animation: typing 1.5s steps(120, end), blink-caret .75s step-end infinite;
+    width: 29ch;
+  }
+}
+
+@media (max-width: 399px) {
+  .animate-text {
+    scale: 0.9;
+    animation: typing 1.5s steps(120, end), blink-caret .75s step-end infinite;
+    width: 29ch;
+  }
+}
+
+@media (max-width: 360px) {
+  .animate-text {
+    scale: 0.85;
+    animation: typing 1.5s steps(120, end), blink-caret .75s step-end infinite;
+    width: 29ch;
+  }
+}
+
+@media (max-width: 320px) {
+  .animate-text {
+    scale: 0.8;
+    animation: typing 1.5s steps(120, end), blink-caret .75s step-end infinite;
+    width: 29ch;
+  }
+}
+
+
 @keyframes typing {
   from { width: 0; }
-  to { width: 22ch; }
+  to { width: 24ch; }
 }
   
 #background-video {

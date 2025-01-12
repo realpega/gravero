@@ -58,6 +58,13 @@ html, body {
   border: 0;
 }
 
+#newsletter-iframe-div {
+  width: 60%;
+  padding-bottom: 25%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 @media (max-width: 512px) {
   .animate-text {
     animation: typing 1.5s steps(120, end), blink-caret .75s step-end infinite;
@@ -99,6 +106,151 @@ html, body {
 
   #gamebody:hover {
     transform: none;
+  }
+}
+
+@media (max-width: 1400px) {
+  #newsletter-iframe-div {
+    padding-bottom: 30%;
+  }
+}
+
+@media (max-width: 1200px) {
+  #newsletter-iframe-div {
+    padding-bottom: 40%;
+  }
+}
+
+@media (max-width: 991px) {
+  #newsletter-iframe-div {
+    padding-bottom: 55%;
+  }
+}
+
+@media (max-width: 767px) {
+  #newsletter-iframe-div {
+    width: 75%;
+    padding-bottom: 70%;
+  }
+}
+
+@media (max-width: 575px) {
+  #newsletter-iframe-div {
+    padding-bottom: 70%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.9;
+  }
+}
+
+@media (max-width: 512px) {
+  #newsletter-iframe-div {
+    padding-bottom: 75%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.85;
+  }
+}
+
+@media (max-width: 480px) {
+  #newsletter-iframe-div {
+    padding-bottom: 80%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.8;
+  }
+}
+
+@media (max-width: 445px) {
+  #newsletter-iframe-div {
+    padding-bottom: 85%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.8;
+  }
+}
+
+@media (max-width: 425px) {
+  #newsletter-iframe-div {
+    padding-bottom: 90%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.8;
+  }
+}
+
+@media (max-width: 400px) {
+  #newsletter-iframe-div {
+    padding-bottom: 95%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.8;
+  }
+}
+
+@media (max-width: 378px) {
+  #newsletter-iframe-div {
+    padding-bottom: 100%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.8;
+  }
+}
+
+@media (max-width: 360px) {
+  #newsletter-iframe-div {
+    padding-bottom: 105%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.8;
+  }
+}
+
+@media (max-width: 345px) {
+  #newsletter-iframe-div {
+    padding-bottom: 110%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.8;
+  }
+}
+
+@media (max-width: 330px) {
+  #newsletter-iframe-div {
+    padding-bottom: 115%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.75;
+  }
+}
+
+@media (max-width: 320px) {
+  #newsletter-iframe-div {
+    padding-bottom: 120%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.75;
+  }
+}
+
+@media (max-width: 305px) {
+  #newsletter-iframe-div {
+    padding-bottom: 125%;
+  }
+
+  #newsletter-iframe {
+    scale: 0.75;
   }
 }
 
